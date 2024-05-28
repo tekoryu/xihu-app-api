@@ -5,9 +5,9 @@ Tests for models
 from django.test import TestCase
 from django.contrib.auth import get_user_model
 
+
 class ModelTests(TestCase):
     """Test models"""
-
 
     def test_create_user_with_email(self):
         """"Test creating a new user with email"""
@@ -42,8 +42,7 @@ class ModelTests(TestCase):
 
     def test_create_super_user(self):
         """Test creating a super user."""
-        user = get_user_model().objects.create_superuser(
+        user = get_user_model().objects.create_superuser(  # noqa
             'test@example.com',
             'test123',
         )
-

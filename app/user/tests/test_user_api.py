@@ -7,9 +7,11 @@ from rest_framework import status
 
 CREATE_USER_URL = reverse('user:create')
 
+
 def create_user(**params):
     """Create and return a new user."""
     return get_user_model().objects.create_user(**params)
+
 
 class PublicUserTests(TestCase):
     """Test the public features of User API"""
@@ -24,7 +26,7 @@ class PublicUserTests(TestCase):
             'name': 'Test Name',
         }
         # The APIClient fakes an API interaction with given endpoint
-        res=self.client.post(CREATE_USER_URL, payload)
+        res = self.client.post(CREATE_USER_URL, payload)
 
         # Then it is checked the content of the res variable
         self.assertEqual(res.status_code, status.HTTP_201_CREATED)
